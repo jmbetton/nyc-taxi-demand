@@ -1,3 +1,5 @@
+## New York City Taxi Service Demand and Volatility
+
 Work in Progress
 
 This project is an end-to-end SQL analysis of New York City yellow taxi demand, framed as a risk problem: 
