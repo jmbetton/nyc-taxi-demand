@@ -1,4 +1,6 @@
 duckdb
 pandas
-matplotlib
+plotly
+kaleido
+nbformat
 jupyter
