@@ -2,11 +2,16 @@
 
 Work in Progress
 
-This project is an end-to-end SQL analysis of New York City yellow taxi demand, framed as a risk problem: 
-- Instead of only identifying when and where taxi demand is highest, it treats the variability of demand across different locations and times as a measure of risk.
-- It's aimed to mirror the way risk and volatility are analyzed in finance.
+I'm using this project to learn more advanced SQL through the analysis of New York yellow yaxi data. Specifically, answering the question of "what yellow taxi zones throughout New York experience high volatility beyond the expected weekend and rush hour spikes in activity.
 
-The Main Question:
-- How does taxi demand fluctuate and behave across NYC's zones and where is this demand most volatile?
+The data was initially downloaded from the NYC Taxi and Limousine Commission website in Parquet format. I chose the date ranges to span the most recent 6 months of trip records which totals approximately 18 million trips from December 1st 2025 to May 31st 2026. The othe data set is the taxi zone lookup csv file which stores information such as zone ID, zone name, and Borough name for each of the 264 taxi zones (Really only 262 real zones because 263 and 264 are labels for unknown zones.)
 
-To be continued...
+
+SQL Steps
+
+01_staging
+- This SQL file creates an initial view (not physically saved) from the 6 original parquet files.
+- Cleans names, and filters out N/A values and possible errors in data.
+
+
+

@@ -2,7 +2,7 @@ WITH weekly_zone AS (
     SELECT
         zone_name,
         borough,
-        DATE_TRUNC('week', trip_date) AS week_start,
+        DATE_TRUNC('week', trip_date) AS week_start,  -- 
         SUM(trips) AS weekly_trips
     FROM fact_demand
     GROUP BY zone_name, borough, DATE_TRUNC('week', trip_date)

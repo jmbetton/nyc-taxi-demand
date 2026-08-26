@@ -33,7 +33,7 @@ HAVING AVG(trips) >= 1
 ORDER BY coeff_of_variation DESC;
 
 
--- Query 2: volatility decomposed — total vs. within-weekday (seasonally adjusted)
+-- decomposed volatility, total vs within weekday 
 WITH calendar AS (
     SELECT DISTINCT trip_date
     FROM fact_demand
