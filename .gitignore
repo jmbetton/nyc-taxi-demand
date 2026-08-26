@@ -22,3 +22,7 @@ __pycache__/
 
 # Process Notes 
 process_notes/
+
+# Work in progress images and analysis (making them local for now)
+analysis.ipynb
+figures/
