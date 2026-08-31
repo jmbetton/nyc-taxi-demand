@@ -8,7 +8,8 @@ The data was initially downloaded from the NYC Taxi and Limousine Commission web
 
 This information is mainly here as an exercise for myself in articulating the purpose of each query and reasons for choosing certain logic. It also serves as a summary of the project work flow.
 
-SQL Steps: An explanation of the 7 different SQL files, what the goal of the query is and for more complex queries, how the logic works. 
+# SQL Steps: 
+An explanation of the 7 different SQL files, what the goal of the query is and for more complex queries, how the logic works. 
 
 ## 01_staging
 - This SQL file creates an initial view (not physically saved) from the 6 original parquet files.
@@ -50,6 +51,17 @@ SQL Steps: An explanation of the 7 different SQL files, what the goal of the que
     1. Recover overall average for each zone_hour from the collapsed within_weekday CTE.
     2. Average the standard deviations across the 7 weekdays for each zone hour. SD doesn't average linearly like total trips does, so it is squared first, then averaged, then the square root is taken to return back to SD.
     3. Compute Coefficient of Variance using the weekday adjusted SD.
+
+
+# Executing SQL with Python
+
+## build.py
+- This executes the first two SQL files: Building the staging view -> then creating the fact_demand table and saving it.
+- DuckDB is an embedded database similar to SQLite. In contrast to MySQL or Postgre which require connecting to a separate server, DuckDB is run inside the program and it's capabilities are accessable by the simple 'import duckdb'.
+- The code:
+    1. duckdb.connect() establishes a connection to a DuckDB database. In this case it creates "nyc_taxi.duckdb" and stores the database on disk so when con is used it refers to the perminent database on file.
+    2. for path... Opens the two sql files in order, the order matters because the second file is dependent on the first. It reads these files into a Python string. con.execute hands that string to DuckDB which runs and parses it.
+    3. row_count This just checks to see that python is correctly reading from the SQL files and returns the row count of fact_demand.
 
 
     
